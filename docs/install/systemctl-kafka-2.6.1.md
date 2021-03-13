@@ -56,7 +56,7 @@ chown -chvR kafka:bigdataservice "$KAFKA_HOME"
 homepath_var_checker ()
 {
     [[ "$1" != "" && -d "$1" ]] ;
-} ;
+} &&
 
 homepath_var_checker "$KAFKA_HOME" ||
 {
