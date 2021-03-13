@@ -46,7 +46,7 @@ chown -chvR kafka:bigdataservice "$KAFKA_HOME"
 
 <!-- ExecStart=$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties -->
 <!-- ExecStart=$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties -->
-在 `$KAFKA_HOME/bin` 下增加服务管理脚本 `server-runoff-manager.sh` ，内容：
+在 `$KAFKA_HOME/bin` 下增加服务管理脚本 `kserverctl.sh` ，内容：
 
 ```bash
 #! /bin/bash
@@ -137,9 +137,9 @@ Type=forking
 User=kafka
 Group=bigdataservice
 
-ExecStart=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/server-runoff-manager.sh start zk'"'"'
-ExecStop=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/server-runoff-manager.sh stop zk'"'"'
-ExecReload=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/server-runoff-manager.sh restart zk'"'"'
+ExecStart=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/kserverctl.sh start zk'"'"'
+ExecStop=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/kserverctl.sh stop zk'"'"'
+ExecReload=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/kserverctl.sh restart zk'"'"'
 
 # ExecStartPre=/usr/bin/echo '"'"'starting zookeeper.service ...'"'"'
 # PrivateTmp=True
@@ -166,9 +166,9 @@ Type=forking
 User=kafka
 Group=bigdataservice
 
-ExecStart=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/server-runoff-manager.sh start kfk'"'"'
-ExecStop=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/server-runoff-manager.sh stop kfk'"'"'
-ExecReload=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/server-runoff-manager.sh restart kfk'"'"'
+ExecStart=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/kserverctl.sh start kfk'"'"'
+ExecStop=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/kserverctl.sh stop kfk'"'"'
+ExecReload=/usr/bin/bash -c '"'"'source /etc/profile ; bash $KAFKA_HOME/bin/kserverctl.sh restart kfk'"'"'
 
 # ExecStartPre=/usr/bin/echo '"'"'starting kafka.service ...'"'"'
 # PrivateTmp=True
