@@ -46,7 +46,7 @@ chown -chvR kafka:bigdataservice "$KAFKA_HOME"
 
 <!-- ExecStart=$KAFKA_HOME/bin/zookeeper-server-start.sh $KAFKA_HOME/config/zookeeper.properties -->
 <!-- ExecStart=$KAFKA_HOME/bin/kafka-server-start.sh $KAFKA_HOME/config/server.properties -->
-在 `$KAFKA_HOME/bin` 下增加服务管理脚本 [`kserverctl.sh`](https://github.com/hmrg-grmh/open-simple-tools.hm/blob/main/kafka-tools/service-manage-tool/kserverctl.sh) ，内容：
+在 `$KAFKA_HOME/bin` 下增加服务管理脚本 [`kserverctl.sh`](https://github.com/hmrg-grmh/open-simple-tools.play-some-hm/blob/main/service-tools/for-kafka/service-manage-tool/kserverctl.sh) ，内容：
 
 ```bash
 #! /bin/bash
